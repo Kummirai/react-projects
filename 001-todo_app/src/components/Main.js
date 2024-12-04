@@ -17,10 +17,8 @@ const Main = () => {
   }
   
   const deleteTask = (index) =>{
-    console.log(index)
       const updatedTasks = task.filter((_, item ) => item !== index);
       setTask(updatedTasks);
-      
   } 
 
 
@@ -32,13 +30,13 @@ const Main = () => {
       placeholder='Enter task'
       onChange={handleChange}
       />
-      <button onClick={addTask}>Add</button>
+      <button onClick={addTask} className="add">Add</button>
       <ol>
         {task.map((item, index)=>{
           return(
           <li key={index}>{item}
-            <button>Complete</button>
-            <button onClick={()=>deleteTask(index)}>Delete</button>
+            <button className="complete" >Complete</button>
+            <button className="delete" onClick={()=>deleteTask(index)}>Delete</button>
           </li>
           )
         })
