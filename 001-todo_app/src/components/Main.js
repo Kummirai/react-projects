@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 const Main = () => {
-  const [task, setTask] = useState(["Clean", "Eat"]);
+  const [task, setTask] = useState([]);
   const [newTask, setNewTask]= useState("");
 
   const handleChange = (event) => {
@@ -19,6 +19,7 @@ const Main = () => {
     <div className='container'>
     <input 
       type='text'
+      value ={newTask}
       placeholder='Enter task'
       onChange={handleChange}
       />
