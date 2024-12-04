@@ -15,6 +15,13 @@ const Main = () => {
       setNewTask("");
     }
   }
+  
+  const deleteTask = (index) =>{
+    console.log(index)
+      const updatedTasks = task.filter((_, item ) => item !== index);
+      setTask(updatedTasks);
+      
+  } 
 
 
   return (
@@ -31,7 +38,7 @@ const Main = () => {
           return(
           <li key={index}>{item}
             <button>Complete</button>
-            <button>Delete</button>
+            <button onClick={()=>deleteTask(index)}>Delete</button>
           </li>
           )
         })
