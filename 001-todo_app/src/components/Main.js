@@ -3,18 +3,20 @@ import { useState } from 'react';
 
 const Main = () => {
   const [task, setTask] = useState([]);
-  const [newTask, setNewTask]= useState("");
+  const [newTask, setNewTask] = useState("");
 
   const handleChange = (event) => {
     setNewTask(event.target.value)
   }
-  
-  
-  const addTask = ()=>{
-    setTask(oldTasks => [...oldTasks, newTask]);
-    setNewTask("");
+
+  const addTask = () => {
+    if (newTask !== "") {
+      setTask(oldTasks => [...oldTasks, newTask]);
+      setNewTask("");
+    }
   }
-  
+
+
   return (
     <div className='container'>
     <input 
@@ -27,7 +29,10 @@ const Main = () => {
       <ol>
         {task.map((item, index)=>{
           return(
-          <li key={index}>{item}</li>
+          <li key={index}>{item}
+            <button>Complete</button>
+            <button>Delete</button>
+          </li>
           )
         })
       }
