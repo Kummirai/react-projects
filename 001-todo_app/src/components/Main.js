@@ -23,7 +23,9 @@ const Main = () => {
 
 
   return (
+  <div className="outer-container">
     <div className='container'>
+    <div className="input-add">
     <input 
       type='text'
       value ={newTask}
@@ -31,17 +33,19 @@ const Main = () => {
       onChange={handleChange}
       />
       <button onClick={addTask} className="add">Add</button>
+      </div>
       <ol>
         {task.map((item, index)=>{
           return(
-          <li key={index}>{item}
-            <button className="complete" >Complete</button>
+          <li key={index}><span>{item}</span>
+            <button className="complete" >In Progress</button>
             <button className="delete" onClick={()=>deleteTask(index)}>Delete</button>
           </li>
           )
         })
       }
       </ol>
+    </div>
   </div>
   )
 }
